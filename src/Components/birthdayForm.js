@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Datepicker, {CalendarContainer} from "react-datepicker";
 import 'react-datepicker/dist/react-datepicker.css';
+import Clock from "./clock"
 
 const BirthdayForm = () => {
   const [selectedDate, setSelectedDate] = useState(new Date())
@@ -23,33 +24,42 @@ const BirthdayForm = () => {
     setFormCompleted(true)
   }
 
-  const RenderStuff = () => {
+  const RenderClock = () => {
     // const birthdate = selectedDate
-    const stuffRendered = formCompleted ? <div> hello </div> : <h2>boop</h2>
-    return stuffRendered
+    const stuffRendered = 
+      formCompleted 
+      ? <Clock birthdayFormState={selectedDate}/> 
+      : <div>
+          <div className="datepicker-container">
+            <Datepicker 
+                selected={selectedDate} 
+                onChange={date => setSelectedDate(date)} 
+                
+                showTimeSelect 
+                showTimeInput
+                timeFormat="HH:mm"
+                timeIntervals={5}
+                timeCaption="time"
+                dateFormat="MMMM d, yyyy h:mm aa"
+                calendarContainer={MyContainer}
+                isClearable
+                placeholderText="What's your birthday?"
+            />
+        </div> 
+        <button onClick={handleGenerate} style={{background: 'lightgreen' }}>Generate Countdown </button>
+      </div>
+      
+      return stuffRendered
   }
+
 
   return ( 
     <div>
-      <div className="datepicker-container">
-        <Datepicker 
-            selected={selectedDate} 
-            onChange={date => setSelectedDate(date)} 
-            
-            // showTimeSelect 
-            showTimeInput
-            timeFormat="HH:mm"
-            timeIntervals={5}
-            timeCaption="time"
-            dateFormat="MMMM d, yyyy h:mm aa"
-            calendarContainer={MyContainer}
-            isClearable
-            placeholderText="What's your birthday?"
 
-        />
-      </div> 
-      <a onClick={handleGenerate} >Generate Countdown</a>
-      <RenderStuff />
+      <RenderClock />
+
+      
+
 
       
     </div>
