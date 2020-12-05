@@ -5,7 +5,7 @@ const getTimeRemaining = (birthday) => {
   var bday = new Date(birthday)
   let today = new Date()
   var distance = bday.getTime() - today.getTime()
-  console.log('distance', distance)
+  // console.log('distance', distance)
 
   var days = Math.floor(distance / (1000 * 60 * 60 * 24));
   var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -21,17 +21,27 @@ const getTimeRemaining = (birthday) => {
 }
 
 
-
-
-
 const Clock = (props) => {
   const [timeRemaining, setTimeRemaining] = useState(null)
 
+  // useEffect(() => {
+  //   const birthday = props.birthdayFormState.toString();
+  //   console.log('bithday',birthday);
+  //   setTimeRemaining(getTimeRemaining(birthday))
+  // }, [props.birthdayFormState])
+
   useEffect(() => {
     const birthday = props.birthdayFormState.toString();
-    console.log('bithday',birthday);
-    setTimeRemaining(getTimeRemaining(birthday))
-  }, [props.birthdayFormState])
+    // console.log('timer')
+    var timer = 0
+
+      timer = setInterval(() => {
+        const timeRemaining = getTimeRemaining(birthday)
+        setTimeRemaining(timeRemaining)
+      }, 1000)
+
+
+  })
 
 
   const data = getTimeRemaining(props.birthdayFormState.toString())
