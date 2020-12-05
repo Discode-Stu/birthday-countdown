@@ -25,8 +25,7 @@ const BirthdayForm = () => {
   }
 
   const RenderClock = () => {
-    // const birthdate = selectedDate
-    const stuffRendered = 
+    const clockRendered = 
       formCompleted 
       ? <Clock birthdayFormState={selectedDate}/> 
       : <div>
@@ -34,7 +33,6 @@ const BirthdayForm = () => {
             <Datepicker 
                 selected={selectedDate} 
                 onChange={date => setSelectedDate(date)} 
-                
                 showTimeSelect 
                 showTimeInput
                 timeFormat="HH:mm"
@@ -49,19 +47,13 @@ const BirthdayForm = () => {
         <button onClick={handleGenerate} style={{background: 'lightgreen' }}>Generate Countdown </button>
       </div>
       
-      return stuffRendered
+      return clockRendered
   }
 
 
   return ( 
     <div>
-
       <RenderClock />
-
-      
-
-
-      
     </div>
   );
 }
