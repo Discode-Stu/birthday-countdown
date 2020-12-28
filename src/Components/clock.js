@@ -18,7 +18,7 @@ const getTimeRemaining = (birthday) => {
     
     bday.setFullYear(lesserMonth)
   }
-  else if (birthMonth == currentMonth) {
+  else if (birthMonth === currentMonth) {
     const birthDay = bday.getDate()
     const currentDay = today.getDate()
 
@@ -32,6 +32,9 @@ const getTimeRemaining = (birthday) => {
       console.log('lesserday', lesserDay);
       
       bday.setFullYear(lesserDay)
+    }
+    else if (birthDay === currentDay) {
+      return 0
     }
   }
 
@@ -104,17 +107,22 @@ const Clock = (props) => {
   //mon Dec 07 2020 13:59:17 GMT-0500
   return (
     <div>
-      <div>
-        <div>DAYS {timeRemaining.days}</div>
-        <div>HOURS {timeRemaining.hours}</div>
-        <div>MINUTES {timeRemaining.minutes}</div>
-        <div>SECONDS {timeRemaining.seconds}</div>
-      </div>
-      <div>
-        {/* //! if current date greater than birthday then add one,
-        //! if current date less than birthday then dont add one */}
-        {<h4>remaining until you are {(getAge(birthday))}</h4>}
-      </div>
+      {
+        timeRemaining == 0 ?
+          <h1>Happy Birthday!!!</h1>
+        :
+        <div>
+          <div>
+            <div>DAYS {timeRemaining.days}</div>
+            <div>HOURS {timeRemaining.hours}</div>
+            <div>MINUTES {timeRemaining.minutes}</div>
+            <div>SECONDS {timeRemaining.seconds}</div>
+          </div>
+          <div>
+            {<h4>remaining until you are {(getAge(birthday))}</h4>}
+          </div>
+        </div>
+      }
     </div>
   )
 }
