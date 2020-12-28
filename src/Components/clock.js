@@ -62,6 +62,9 @@ const Clock = (props) => {
 
   const [timeRemaining, setTimeRemaining] = useState(getTimeRemaining(birthday));
 
+  const noBirthYear = new Date(birthday).getFullYear() === new Date().getFullYear()
+
+
   const getAge = (birthday) => {
     var bday = new Date(birthday);
     let today = new Date();
@@ -105,10 +108,27 @@ const Clock = (props) => {
   // }, []);
 
   //mon Dec 07 2020 13:59:17 GMT-0500
+
+  const renderMessage = () => {
+
+    console.log('noBirthYear', noBirthYear);
+    
+    if(noBirthYear) {
+      return (
+        <h4>until your birthday!</h4>
+      )
+    } else {
+      return (
+        <h4>remaining until you are {(getAge(birthday))}</h4>
+      )
+    }
+
+  }
+
   return (
     <div>
       {
-        timeRemaining == 0 ?
+        timeRemaining === 0 ?
           <h1>Happy Birthday!!!</h1>
         :
         <div>
@@ -119,7 +139,7 @@ const Clock = (props) => {
             <div>SECONDS {timeRemaining.seconds}</div>
           </div>
           <div>
-            {<h4>remaining until you are {(getAge(birthday))}</h4>}
+            {renderMessage()}
           </div>
         </div>
       }
