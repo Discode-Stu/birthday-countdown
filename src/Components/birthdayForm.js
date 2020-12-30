@@ -39,7 +39,7 @@ const RenderClock = () => {
     ? 
       <div>
         <Clock birthdayFormState={startDate} formCompleted={formCompleted} /> 
-        <button onClick={handleChangeDate} style={{background: 'pink' }}>Change Date</button>
+        <a className='change-date' onClick={handleChangeDate} >Change Date</a>
       </div>
     : 
       <div>
