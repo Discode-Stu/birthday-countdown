@@ -137,17 +137,19 @@ const Clock = (props) => {
   }
 
   return (
-    <div className='countdown'>
+    <div>
       {
         timeRemaining === 0 ?
-          <div className='message-container'>
-            <p className="message-container__title">Countdown Complete</p>
-            <p className="message-container__message">HAPPY BIRTHDAY!!</p>
+          <div className='countdown'>
+            <div className='message-container'>
+              <p className="message-container__title">Countdown Complete</p>
+              <p className="message-container__message">HAPPY BIRTHDAY!!</p>
+            </div>
           </div>
 
         :
         <div>
-          <div>
+          <div className='countdown'>
             <ul className='countdown__clock'>
               <li>DAYS <p>{timeRemaining.days}</p></li>
               <li>HOURS <p>{timeRemaining.hours}</p></li>
@@ -155,7 +157,7 @@ const Clock = (props) => {
               <li>SECONDS <p>{timeRemaining.seconds}</p></li>
             </ul>
           </div>
-          <div>
+          <div className='until-container'>
             {renderMessage()}
           </div>
         </div>

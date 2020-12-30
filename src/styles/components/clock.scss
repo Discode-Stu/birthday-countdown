@@ -69,3 +69,7 @@ ul p {
   font-size: 6vw;
   line-height: 115px;
 }
+
+.until-container {
+  @include center-item($top: 85%, $left: 50%);
+}
