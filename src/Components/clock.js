@@ -140,7 +140,11 @@ const Clock = (props) => {
     <div className='countdown'>
       {
         timeRemaining === 0 ?
-          <h1>Happy Birthday!!!</h1>
+          <div className='message-container'>
+            <p className="message-container__title">Countdown Complete</p>
+            <p className="message-container__message">HAPPY BIRTHDAY!!</p>
+          </div>
+
         :
         <div>
           <div>
