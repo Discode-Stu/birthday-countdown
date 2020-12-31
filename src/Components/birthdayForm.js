@@ -12,9 +12,9 @@ const RenderClock = () => {
 
   const MyContainer = ({ className, children }) => {
     return (
-      <div style={{ padding: "16px", background: "#216ba5", color: "#fff" }}>
+      <div style={{ padding: "4px", background: "#A3ABB2", color: "#444" }}>
         <CalendarContainer className={className}>
-          <div style={{ background: "#f0f0f0" }}>
+          <div style={{ background: "#444444" }}>
           </div>
           <div style={{ position: "relative" }}>{children}</div>
         </CalendarContainer>
@@ -26,7 +26,8 @@ const RenderClock = () => {
     setStartDate(date)
   }
 
-  const handleGenerate = () => {
+  const handleGenerate = (e) => {
+    e.preventDefault()
     setFormCompleted(true)
   }
 
@@ -35,7 +36,7 @@ const RenderClock = () => {
   }
 
   const clockRendered = 
-    <div className='birthday-container'>
+    <form onSubmit={handleGenerate} className='birthday-container'>
       {formCompleted
       ? 
         <div className='clock-container'>
@@ -50,26 +51,26 @@ const RenderClock = () => {
               onChange={handleChange} 
               // onChange={date => setStartDate(date)} 
               // showTimeSelect 
-              showTimeInput
-              timeFormat="HH:mm"
-              timeIntervals={5}
-              timeCaption="time"
-              dateFormat="MM/dd/yyyy h:mm aa"
+              // showTimeInput
+              // timeFormat="HH:mm"
+              // timeIntervals={5}
+              // timeCaption="time"
+              // dateFormat="MM/dd/yyyy h:mm aa"
               calendarContainer={MyContainer}
-              isClearable
+              // isClearable
               placeholderText="What's your birthday?"
               // showMonthYearPicker
               // showYearPicker
           />
           <div>
-            <a 
+            <input 
               className="submit-container"
-              onClick={handleGenerate}>
-                Generate Countdown 
-            </a>
+              type='submit'
+              value='Generate Countdown'
+            />
           </div>
         </div> }
-    </div>
+    </form>
 
   return clockRendered
 }

@@ -1,16 +1,42 @@
 .birthday-container {
-  @include center-item($pull-x: -50%, $pull-y: -50%, $top: 50%, $left: 50% )
+  @include center-item($pull-x: -50%, $pull-y: -50%, $top: 50%, $left: 50% );
+  // width: 100%;
 }
 
 .datepicker-container {
+  @include center-item($pull-x: -35%, $pull-y: -50%, $top: 0%, $left: 0% );
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  // width: inherit !important;
+  width: 25vw;
 
 }
+
 
 .clock-container {
   width: 100vw;
   height: 100vh;
+}
+
+.datepicker {
+  border: none;
+  border-bottom: 1px solid var(--yellow-primary);
+  text-align: center;
+  font-size: 6vw;
+  width: 200% !important;
+  background-color: transparent;
+  padding: 35px 0;
+  color: var(--gray-primary);
+  font-weight: bold;
+  font-family: var(--roboto-condensed);
+  transition: all .3s;
+
+  &:focus {
+    border-bottom: 5px solid var(--blue-secondary);
+    outline: none;
+    padding: 0;
+  }
+
 }
