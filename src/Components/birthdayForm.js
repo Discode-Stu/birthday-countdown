@@ -35,35 +35,42 @@ const RenderClock = () => {
   }
 
   const clockRendered = 
-    formCompleted 
-    ? 
-      <div>
-        <Clock birthdayFormState={startDate} formCompleted={formCompleted} /> 
-        <a className='change-date' onClick={handleChangeDate} >Change Date</a>
-      </div>
-    : 
-      <div>
-          <div className="datepicker-container">
-            <Datepicker 
-                selected={startDate} 
-                onChange={handleChange} 
-                // onChange={date => setStartDate(date)} 
-                showTimeSelect 
-                showTimeInput
-                timeFormat="HH:mm"
-                timeIntervals={5}
-                timeCaption="time"
-                dateFormat="MM/dd/yyyy h:mm aa"
-                calendarContainer={MyContainer}
-                isClearable
-                placeholderText="What's your birthday?"
-                // showMonthYearPicker
-                // showYearPicker
-            />
-        </div> 
-      <button onClick={handleGenerate} style={{background: 'lightgreen' }}>Generate Countdown </button>
+    <div className='birthday-container'>
+      {formCompleted
+      ? 
+        <div className='clock-container'>
+          <Clock birthdayFormState={startDate} formCompleted={formCompleted} /> 
+          <a className='change-date' onClick={handleChangeDate} >Change Date</a>
+        </div>
+      : 
+        <div className="datepicker-container">
+          <Datepicker 
+              className="datepicker"
+              selected={startDate} 
+              onChange={handleChange} 
+              // onChange={date => setStartDate(date)} 
+              // showTimeSelect 
+              showTimeInput
+              timeFormat="HH:mm"
+              timeIntervals={5}
+              timeCaption="time"
+              dateFormat="MM/dd/yyyy h:mm aa"
+              calendarContainer={MyContainer}
+              isClearable
+              placeholderText="What's your birthday?"
+              // showMonthYearPicker
+              // showYearPicker
+          />
+          <div>
+            <a 
+              className="submit-container"
+              onClick={handleGenerate}>
+                Generate Countdown 
+            </a>
+          </div>
+        </div> }
     </div>
-    
+
   return clockRendered
 }
 
