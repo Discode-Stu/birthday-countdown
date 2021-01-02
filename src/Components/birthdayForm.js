@@ -58,13 +58,13 @@ const RenderClock = () => {
               // dateFormat="MM/dd/yyyy h:mm aa"
               calendarContainer={MyContainer}
               // isClearable
-              placeholderText="What's your birthday?"
+              placeholderText="Enter birthday"
               // showMonthYearPicker
               // showYearPicker
           />
-          <div>
+          <div className="submit-container">
             <input 
-              className="submit-container"
+              // className="submit-container"
               type='submit'
               value='Generate Countdown'
             />

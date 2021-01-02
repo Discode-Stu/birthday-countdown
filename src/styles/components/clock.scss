@@ -32,6 +32,13 @@
   font-weight: 100;
   text-shadow: 1px 1px 3px black;
 
+  transition: all .3s;
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.1)
+  }
+
 }
 
 .message-container {
@@ -51,25 +58,55 @@
 .message-container__message {
   @include center-item($top: 25%, $left: 10%, $pull-x: 0%, $pull-y: 0%);
   font-family: var(--roboto-condensed);
-  font-size: 6vw;
-  font-weight: bold;
+  font-size: 5vw;
+  font-weight: 900;
   width: 100%;
+  height: 100px;
+
+  background-image: url('../../images/vertical-pattern.png');
+  // background-image: url('../../images/frosting3.png');
+  // background-image: url('../../images/candles.png');
+  background-size:10%;
+  background-repeat:unset;
+  // background-position-y: -90px;
+  // background-position-y: -220px;
+  -webkit-background-clip: text;
+  color: transparent;
 
 }
+
 
 ul li {
   list-style: none;
   color: var(--yellow-secondary);
   font-size: 22px;
   font-family: var(--roboto-condensed);
+  // text-shadow: 1px 1px 1px white
+
 }
 
 ul p {
   color: white;
   font-size: 6vw;
   line-height: 115px;
+  text-shadow: 2px 2px 1px  var(--yellow-secondary);
+  // background-image: url('../../images/vertical-pattern.png');
+  // // background-image: url('../../images/frosting3.png');
+  // // background-image: url('../../images/candles.png');
+  // background-size:40%;
+  // background-repeat:unset;
+  // // background-position-y: -90px;
+  // // background-position-y: -220px;
+  // -webkit-background-clip: text;
+  // color: transparent;
 }
 
 .until-container {
   @include center-item($top: 85%, $left: 50%);
+}
+
+h4 {
+  font-size: 1.2em;
+  text-shadow: 1px 1px 1px  var(--gray-secondary);
+
 }

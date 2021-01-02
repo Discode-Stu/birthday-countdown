@@ -78,7 +78,7 @@ const Clock = (props) => {
     var daysOld = Math.floor(distance / (1000 * 60 * 60 * 24));
     var yearsOld = Number((daysOld/365).toFixed(0));
 
-    if (((bdayMonth > 5) && (bdayMonth != todayMonth)) || ((bdayMonth === todayMonth) && (bdayDay < todayDay))) {
+    if (((bdayMonth > 5) && (bdayMonth !== todayMonth)) || ((bdayMonth === todayMonth) && (bdayDay < todayDay))) {
       return yearsOld + 1
     } else {
       return yearsOld;

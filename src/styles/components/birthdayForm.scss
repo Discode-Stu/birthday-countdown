@@ -27,6 +27,8 @@
   font-size: 6vw;
   width: 200% !important;
   background-color: transparent;
+  text-shadow: 3px 3px 5px black;
+
   padding: 35px 0;
   color: var(--gray-primary);
   font-weight: bold;
@@ -40,3 +42,76 @@
   }
 
 }
+
+.submit-container {
+  transform: skew(-30deg) translateX(160px);
+  height: 50px;
+  width: 300px;
+  border-radius: 4px;
+  box-shadow: 2px 3px 4px 0 rgba(0,0,0,.6) ;
+  text-align: center;
+  // font-size: 1.5em;
+  margin-top: 42px;
+  // margin-right: 250px;
+  background-color: var(--blue-primary);
+  // transform: translateX(50px);
+
+
+  transition: all .3s;
+
+  &:hover {
+    // border-bottom: 5px solid var(--blue-secondary);
+    outline: none;
+    padding: 0;
+    transform: skew(-30deg) translateX(160px) scale(1.1);
+    box-shadow: 4px 5px 4px 0 rgba(0,0,0,.6) ;
+    cursor: pointer;
+  }
+
+  &:active {
+    transform: skew(-30deg) translateX(160px) scale(1);
+    box-shadow: 0px 0px 0px ;
+    border: none;
+
+
+  }
+}
+
+@media screen and (max-width: 1240px) {
+  .submit-container {
+    transform: skew(-30deg) translateX(120px);
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .submit-container {
+    transform: skew(-30deg) translateX(90px);
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .submit-container {
+    transform: skew(-30deg) translateX(70px);
+  }
+}
+
+@media screen and (max-width: 515px) {
+  .submit-container {
+    transform: skew(-30deg) translateX(60px);
+  }
+}
+
+.submit-container input {
+  transform: skew(30deg);
+  font-size: 18px;
+  border: none;
+  height: 100%;
+  outline: none;
+  background-color: transparent;
+  color: white;
+  font-weight: 200;
+  cursor: pointer
+  // text-shadow: 1px 1px 3px green;
+
+}
+

@@ -8,19 +8,18 @@ h1 {
   position: absolute;
   left: 75px;
   top: 75px;
+  text-shadow: 1px 1px 3px black;
+
 
 }
-
-@mixin header-background($color: var(--blue-primary), $clip-path: polygon(0 100%, 0 0, 50% 0%, 16% 100%)) {
-  width:100vw;
-  height: 100vh;
-  background-color: $color;
-  clip-path: $clip-path;
+@media screen and (max-width: 588px) {
+  h1 {
+    transform: translateX(-60px);
+  }
 }
 
 .header__skew {
   @include header-background()
-  
 }
 
 .header__subskew {
